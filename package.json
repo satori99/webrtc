@@ -1,12 +1,27 @@
 {
-  "name": "openshift-cartridge-nodejs-template",
-  "version": "1.0.1",
-  "description": "Custom Node.js cartridge for OpenShift - sample application",
+  "name": "webrtc-experiment",
+  "version": "0.0.0",
+  "title": "WebRTC Experiment",
+  "description": "A WebRTC Experiment",
+  "main": "src/master.js",
   "private": true,
-  "main": "start.js",
   "scripts": {
-    "start": "node --use_strict start.js"
+    "start": "node src/master",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ionut-Cristian Florescu <ionut.florescu@gmail.com>",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satori99/webrtc-experiment.git"
+  },
+  "author": "satori99 <satori.developer@gmail.com>",
+  "homepage": "https://github.com/satori99/webrtc-experiment#readme",
+  "dependencies": {
+    "cookie-parser": "1.4.3",
+    "express": "4.14.0",
+    "file-stream-rotator": "0.0.7",
+    "morgan": "1.7.0",
+    "pug": "2.0.0-beta6",
+    "serve-favicon": "2.3.0",
+    "uws": "0.10.4"
+  }
 }
