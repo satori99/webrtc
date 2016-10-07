@@ -6,16 +6,16 @@
 
 const http = require( 'http' )
 
-const ws = require( 'uws' )
+// const ws = require( 'uws' )
 
 const app = require( './app' )
 
 const httpServer = http.createServer( app )
 
-const wsServer = new ws.Server( {
-	server: httpServer,
-	port: 
-} )
+// const wsServer = new ws.Server( {
+// 	server: httpServer,
+// 	port: 
+// } )
 
 httpServer.once( 'error', err => {
 
