@@ -4,7 +4,7 @@
 
 'use strict'
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+
 
 const pkg = require( '../package.json' )
 
@@ -23,6 +23,10 @@ const cookieParser = require( 'cookie-parser' )
 const router = require( './router' )
 
 const app = express()
+
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+
+const LOG_DIR = process.env.OPENSHIFT_LOG_DIR || path.join( __dirname, '../logs' )
 
 app.locals.app_title = pkg.title || pkg.name
 
@@ -66,11 +70,9 @@ app.use( cookieParser() )
 
 // logging
 
-const logDirectory = path.join( __dirname, '../logs' )
-
 const accessLogStream = FileStreamRotator.getStream( {
   date_format: 'YYYYMMDD',
-  filename: path.join( logDirectory, 'access-%DATE%.log'),
+  filename: path.join( LOG_DIR, 'access-%DATE%.log'),
   frequency: 'daily',
   verbose: false
 } )

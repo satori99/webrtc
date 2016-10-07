@@ -10,7 +10,7 @@ const http = require( 'http' )
 
 const app = require( './app' )
 
-const httpServer = http.createServer()
+const httpServer = http.createServer( app )
 
 // const wsServer = new ws.Server( {
 // 	server: httpServer,
@@ -26,7 +26,5 @@ httpServer.once( 'error', err => {
 	// process.exit( 0 )
 
 } )
-
-httpServer.on( 'request', app )
 
 httpServer.listen( process.env.NODE_PORT, process.env.NODE_IP )
