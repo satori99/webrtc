@@ -38,7 +38,7 @@ function initMaster ( options ) {
 
 	let isShuttingDown = false
 
-	cluster.setupMaster( { exec: './src/worker.js', silent: false } )
+	cluster.setupMaster( { exec: './src/worker.js', silent: true } )
 
 	cluster.on( 'message', msg => {
 
@@ -64,11 +64,7 @@ function initMaster ( options ) {
 
 		console.log( `0:${process.pid} - worker [${worker.id}:${worker.process.pid}] has exited with code ${code} (suicide=${worker.suicide})` )
 
-		if ( ! isShuttingDown ) {
-
-			forkWorker()
-
-		}
+		if ( ! isShuttingDown ) forkWorker()
 
 	} )
 
@@ -103,17 +99,17 @@ function initMaster ( options ) {
 	for ( let i = 0; i < NUM_WORKERS; i ++ ) forkWorker()
 
 	// A remote node repl that you can telnet to!
-	net.createServer( function ( socket ) {
+	// net.createServer( function ( socket ) {
 
-		const remote = repl.start( 'node::remote> ', socket )
+	// 	const remote = repl.start( 'node::remote> ', socket )
 
-		//Adding "mood" and "bonus" to the remote REPL's context.
-		//remote.context.mood = mood;
-		//remote.context.bonus = "UNLOCKED";
+	// 	//Adding "mood" and "bonus" to the remote REPL's context.
+	// 	//remote.context.mood = mood;
+	// 	//remote.context.bonus = "UNLOCKED";
 
-		remote.context.help = () => 'Help!!!'
+	// 	remote.context.help = () => 'Help!!!'
 
-	} ).listen( 5001 )
+	// } ).listen( 5001 )
 
 }
 
