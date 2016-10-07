@@ -1,0 +1,17 @@
+extends layout
+
+block title
+	title #{app_title} - #{page_title}
+
+block main
+
+	h2 Send File
+
+	p Send a file using WebRTC
+
+	button.send-file(disabled) Send File
+
+	pre: div#log
+
+append scripts
+	script(src="js/sendfile.js")

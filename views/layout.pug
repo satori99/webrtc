@@ -1,0 +1,16 @@
+doctype html
+html(lang=en)
+	head
+		block title
+			title #{app_title}
+	body
+		header
+			block header
+				include header.pug
+		main
+			block main
+		footer
+			block footer
+				include footer.pug
+		block scripts
+			-// script(src="common.js")
