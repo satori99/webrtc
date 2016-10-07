@@ -3,6 +3,23 @@ WebRTC Experiment
 
 A WebRTC experiment
 
+Install
+-------
+
+    $ git clone https://github.com/satori99/webrtc.git
+    $ cd webrtc
+    $ npm install
+
+Start
+-----
+
+Start an application server with the following command
+
+    $ node src/master
+
+or
+
+    $ npm start
 
 OpenShift
 ---------
@@ -15,7 +32,8 @@ with the following command:
     > https://cartreflect-claytondev.rhcloud.com/reflect?github=smarterclayton/openshift-redis-cart \
     > --from-code=https://github.com/satori99/webrtc.git
 
+
 Show logs
 
-    $ rhc tail -a <APP_NAME>
+    $rhc tail -a <APP_NAME>
 
